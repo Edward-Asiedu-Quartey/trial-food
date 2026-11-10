@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtan Specials - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Hero Section with Background Image */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .welcome-text {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .menu-btn {
+            display: inline-block;
+            background: #d4a574;
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: #c49464;
+        }
+
+        .menu-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 100vh;
+                min-height: 100svh;
+                padding: 32px 16px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+                margin-bottom: 16px;
+            }
+
+            .hero .welcome-text {
+                font-size: 20px;
+            }
+
+            .hero .tagline {
+                font-size: 17px;
+                margin-bottom: 28px;
+            }
+
+            .menu-btn {
+                padding: 15px 30px;
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="welcome-text">Welcome to</p>
+            <h1>Youtan Bites</h1>
+            <p class="tagline">Delicious pastries & authentic meals</p>
+            <a href="content.html" class="menu-btn">View Menu</a>
+        </div>
+    </section>
+</body>
+</html>

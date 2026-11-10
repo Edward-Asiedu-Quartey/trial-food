@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtan Specials - Restaurant Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #d4a574 0%, #8b4513 100%);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .login-btn-header {
+            background: #ffd700;
+            color: #8b4513;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .login-btn-header:hover {
+            background: #ffed4a;
+            color: #8b4513;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            background: #d4a574;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #8b4513;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #d4a574;
+            margin: 15px auto 0;
+        }
+
+        /* Pastries */
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 28px;
+            color: #5a3e2b;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 4px solid #d4a574;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item h3 {
+            color: #5a3e2b;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .menu-item .price {
+            font-size: 22px;
+            color: #d4a574;
+            font-weight: bold;
+        }
+
+        /* Delicious Meals */
+        .meals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .meal-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .meal-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .meal-content {
+            padding: 25px;
+        }
+
+        .meal-content h3 {
+            color: #5a3e2b;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .meal-content p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .meal-content .price {
+            font-size: 24px;
+            color: #d4a574;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #5a3e2b;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 14px;
+                padding: 18px 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 12px 18px;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+            }
+
+            .login-btn-header {
+                padding: 8px 16px;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 320px;
+                padding: 40px 16px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .cta-button {
+                padding: 13px 24px;
+                font-size: 16px;
+            }
+
+            .menu-section {
+                padding: 42px 16px;
+            }
+
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 32px;
+            }
+
+            .menu-category {
+                margin-bottom: 38px;
+            }
+
+            .category-title {
+                font-size: 24px;
+                margin-bottom: 18px;
+                padding-left: 12px;
+            }
+
+            .menu-grid,
+            .meals-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+            }
+
+            .menu-item-image,
+            .meal-image {
+                height: 190px;
+            }
+
+            .menu-item-content,
+            .meal-content {
+                padding: 18px;
+            }
+
+            footer {
+                padding: 30px 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                gap: 10px 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Welcome to Youtan Bites</div>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="order.html">Order</a>
+            <a href="index.html" class="login-btn-header">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Youtan Bites</h1>
+            <p>Delicious pastries and exquisite meals</p>
+            <button class="cta-button" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">View Our Menu</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        
+        <!-- Pastries -->
+        <div class="menu-category">
+            <h3 class="category-title">🍞 Pastries</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="yuyu meatpie.webp" alt="Meat Pie" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Meat Pie</h3>
+                        <p>Flaky pastry filled with seasoned ground beef and vegetables</p>
+                        <span class="price">$3.99</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="yuyu chocolate roll.webp" alt="Chocolate Roll" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Chocolate Roll</h3>
+                        <p>Soft chocolate swirl pastry with rich cocoa filling</p>
+                        <span class="price">$2.99</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="yuyu spring rolls.webp" alt="Spring Rolls" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Spring Rolls</h3>
+                        <p>Crispy spring rolls with savory vegetable filling</p>
+                        <span class="price">$1.49</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400" alt="Donuts" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Donuts</h3>
+                        <p>Soft, fluffy donuts with sweet glaze coating</p>
+                        <span class="price">$1.99</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="yuyu egg roll.webp" alt="egg roll" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Egg Rolls</h3>
+                        <p>Crispy rolls with savory egg and vegetable filling</p>
+                        <span class="price">$1.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="menu-category">
+            <h3 class="category-title">🍰 Desserts</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-content">
+                        <img src="yuyu yoghurt.webp" alt="Yogurt" class="menu-item-image">
+                        <h3>Yogurt</h3>
+                        <p>Creamy yogurt with fresh fruits and honey drizzle</p>
+                        <span class="price">$4.99</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400" alt="Parfait" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Parfait</h3>
+                        <p>Layers of creamy yogurt, fresh berries, and crunchy granola</p>
+                        <span class="price">$5.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Dishes -->
+        <div class="menu-category">
+            <h3 class="category-title">🍛 Special Dishes</h3>
+            <div class="meals-grid">
+                <div class="meal-card">
+                    <img src="yuyu jollof.webp" alt="Jollof Rice" class="meal-image">
+                    <div class="meal-content">
+                        <h3>Jollof Rice</h3>
+                        <p>Traditional West African jollof rice with aromatic spices, served with chicken and plantains</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                </div>
+                <div class="meal-card">
+                    <img src="yuyu fried.webp" alt="Fried Rice" class="meal-image">
+                    <div class="meal-content">
+                        <h3>Fried Rice</h3>
+                        <p>Savory fried rice with vegetables, fried chicken and scrambled eggs in soy sauce</p>
+                        <span class="price">$11.99</span>
+                    </div>
+                </div>
+                <div class="meal-card">
+                    <img src="yuyu waakye.webp" alt="Waakye" class="meal-image">
+                    <div class="meal-content">
+                        <h3>Waakye</h3>
+                        <p>Traditional Ghanaian rice and beans dish served with shito, spaghetti,gari, chicken and fried plantain</p>
+                        <span class="price">$10.99</span>
+                    </div>
+                </div>
+                <div class="meal-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Pizza" class="meal-image">
+                    <div class="meal-content">
+                        <h3>Pizza</h3>
+                        <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and your choice of toppings</p>
+                        <span class="price">$14.99</span>
+                    </div>
+                </div>
+                <div class="meal-card">
+                    <img src="yuyu shawarma.jpg" alt="Shawarma" class="meal-image">
+                    <div class="meal-content">
+                        <h3>Shawarma</h3>
+                        <p>Marinated meat served in a warm pita with vegetables and tahini sauce</p>
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <h2>Youtan Bites</h2>
+        <p>Fresh pastries & delicious meals since 2021</p>
+        <p>Open: Mon-Sun | 7:00 AM - 10:00 PM</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>
